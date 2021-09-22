@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.center {
+  /* margin-top: 15%; */
+  display: flex;
+  justify-content: center;
+}
+
+.card-back, .card-front {
+  height: 10rem;
+  /* border-radius: .5rem; */
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front {
+  background-color: #168274;
+  box-shadow: 0rem 0rem 1rem 1rem  #168274;
+}
+
+.card-back {
+  background-color: #477470;
+  box-shadow: 0rem 0rem 1rem 1rem  #477470;
+
+}
+
+.background {
+  background-color: gray;
+  height: 100vh;
+}
