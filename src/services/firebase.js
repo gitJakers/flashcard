@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyC1tToFtbPpKt-3Ugk0icaaifdXaH5gtgc",
@@ -31,7 +31,7 @@ async function AddFlashCard(card) {
 const cards = [];
 const jsCards = [];
 const reactCards = [];
-const csharpCards= [];
+const csharpCards = [];
 const miscCards = [];
 
 //Call this when the app loads so the data can already be loaded.
@@ -39,13 +39,13 @@ async function getFlashCards() {
     cards.length = 0;
     const querySnapshot = await getDocs(collection(db, "flashcards"));
     querySnapshot.forEach((doc) => {
-        if(doc.data().Category == "Javascript"){
+        if (doc.data().Category === "Javascript") {
             jsCards.push(doc.data());
-        }else if(doc.data().Category == "React"){
+        } else if (doc.data().Category === "React") {
             reactCards.push(doc.data());
-        }else if(doc.data().Category == "C#"){
+        } else if (doc.data().Category === "C#") {
             csharpCards.push(doc.data());
-        }else{
+        } else {
             miscCards.push(doc.data());
         }
         cards.push(doc.data());
@@ -57,9 +57,9 @@ function getData() {
     return cards;
 }
 
-function logIn(email, password) {
+function signUp(email, password) {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
@@ -68,7 +68,33 @@ function logIn(email, password) {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            // ..
         });
 }
 
-export { firebase, db, AddFlashCard, getFlashCards, getData, logIn }
+function logIn(email, password, history) {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log('logged in');
+            history.push('/flashcards');
+
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+}
+
+function logOut(e){
+    e.preventDefault();
+    const auth = getAuth();
+    auth.signOut().then(() => {
+        console.log('signed out');
+    });
+}
+
+export { firebase, db, AddFlashCard, getFlashCards, getData, logIn, logOut, signUp }

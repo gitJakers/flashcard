@@ -1,18 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Switch, Route, Link, Redirect} from 'react-router-dom';
-// import { firebase } from './services/firebase';
-//This is importing the entire react bootstrap library
-//import {Container, Row, Col} from 'react-bootstrap';
-//This is importing JUST the container component from the react bootstrap library
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FlashCard from './pages/flashcard.component';
 import AddCard from './pages/addCard';
+import SignIn from './pages/signIn';
+import {logOut} from './services/firebase';
+import { useHistory } from 'react-router';
+import  history from './services/history';
 
 function App() {
+
   return (
     <div className="background">
       <Router>
@@ -27,12 +27,15 @@ function App() {
             <Col md={6}>
               <Link to="/login"><button className="btn btn-secondary">Login</button></Link>
             </Col>
+            <Col md={6}>
+              <Link to="/login"><button onClick={(e) => {logOut(e)}} className="btn btn-secondary">Log Out</button></Link>
+            </Col>
           </Row>
         </Container>
 
         <Switch>
           <Route path="/login">
-            <h2>actual login page</h2>
+            <SignIn history={history}/>
           </Route>
           <Route path="/flashcards">
             <FlashCard/>

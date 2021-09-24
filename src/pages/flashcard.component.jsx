@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { getFlashCards, getData } from "../services/firebase.js";
 import ReactCardFlip from "react-card-flip";
-import { prevFlashCard, nextFlashCard } from "../services/nextprev.js";
+
 export default class FlashCard extends Component {
   constructor(props) {
     super(props);
