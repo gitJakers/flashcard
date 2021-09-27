@@ -45,26 +45,97 @@
 
 .card-back, .card-front {
   height: 10rem;
-  /* border-radius: .5rem; */
   width: 100%;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #272627;
+  height: 20rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px rgb(0, 178, 248);
+  /* 0px 0px 10px 0px rgb(78, 1, 88); */
 }
 
-.card-front {
-  background-color: #168274;
-  box-shadow: 0rem 0rem 1rem 1rem  #168274;
+.flipBtn {
+  min-width: 12rem;
+  min-height: 4rem;
+  border-radius: 2rem;
+  border-style: hidden;
+  color: white;
+  font-size: 2rem;
+  background-color: #0CBABA;
 }
 
+.prevBtn, .nextBtn {
+  /* min-width: 10rem; */
+  color: white;
+  font-size: 1rem;
+  min-height: 4rem;
+  min-width: 5rem;
+  border-radius: 2rem;
+  border-style:solid;
+  border-color: #0CBABA;
+  background: transparent;
+  /* background-color: #0CBABA; */
+}
+
+.prevBtn:hover {
+  content:;
+  color: black;
+  padding-left: 2rem;
+}
+
+/* .nextBtn {
+
+} */
+
+/* 
 .card-back {
   background-color: #477470;
+  height: 20rem;
   box-shadow: 0rem 0rem 1rem 1rem  #477470;
+} */
 
+.loginTitle {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 2rem;
+}
+
+/* .signUpCard {
+  min-height: 100vh;
+} */
+
+.signUpSize {
+  max-width: 400px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
 }
 
 .background {
-  background-color: gray;
   height: 100vh;
+  background: rgb(56,0,54);
+  background: linear-gradient(150deg, rgba(56,0,54,1) 0%, rgba(93,12,186,1) 54%, rgba(1,186,239,1) 100%); 
+}
+
+.loginTitle {
+  color: white;
+}
+
+.loginBtn {
+  width: 100%;
+}
+
+/* Styling one button :) */
+.signUpBtn {
+  padding-top: 0px !important;
+  border-style: none !important;
+  color: #0918e7 !important;
+  outline: none !important;
+  box-shadow: none !important;
 }

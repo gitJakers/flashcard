@@ -57,17 +57,26 @@ function getData() {
     return cards;
 }
 
-function signUp(email, password) {
+function getUser(){
+    const auth = getAuth();
+    console.log(auth.currentUser.email);
+    return auth;
+}
+
+function signUp(email, password, history) {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+            console.log(user);
+            history.push('/flashcards');
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
             // ..
         });
 }
@@ -80,21 +89,26 @@ function logIn(email, password, history) {
             const user = userCredential.user;
             console.log('logged in');
             history.push('/flashcards');
-
+            return user;
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
         });
 }
 
-function logOut(e){
-    e.preventDefault();
+function logOut(){
     const auth = getAuth();
-    auth.signOut().then(() => {
-        console.log('signed out');
-    });
+    if(auth.currentUser != null){
+        auth.signOut().then(() => {
+            console.log('signed out');
+        });
+    }else{
+        alert('Not signed in');
+    }
 }
 
-export { firebase, db, AddFlashCard, getFlashCards, getData, logIn, logOut, signUp }
+export const auth = getAuth();
+export { firebase, db, AddFlashCard, getFlashCards, getData, logIn, logOut, signUp, getUser }
