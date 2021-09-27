@@ -53,8 +53,18 @@ async function getFlashCards() {
 }
 
 //Call this function when you need to display the data.
-function getData() {
-    return cards;
+function getData(collection) {
+    if(collection === "Javascript"){
+        return jsCards;
+    }else if(collection === "React"){
+        return reactCards;
+    }else if(collection === "C#"){
+        return csharpCards;
+    }else if(collection === "Miscellaneous"){
+        return miscCards;
+    }else{
+        return cards;
+    }
 }
 
 function getUser(){

@@ -64,6 +64,28 @@
   padding-bottom: 10px; */
 }
 
+.categoryBtnBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.categoryBtn {
+  width: 10rem;
+  font-size: 1.25rem !important;
+  background-color: #4e4a4c !important;
+}
+
+/* .categoryBtn:focus{
+  color: black !important;
+  background-color: white !important;
+} */
+
+.categoryBtn:hover {
+  color: black !important;
+  background-color: white !important;
+}
+
 .card-back, .card-front {
   height: 10rem;
   width: 100%;

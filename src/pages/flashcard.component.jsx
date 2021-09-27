@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { getFlashCards, getData } from "../services/firebase.js";
 import ReactCardFlip from "react-card-flip";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default class FlashCard extends Component {
@@ -15,8 +15,7 @@ export default class FlashCard extends Component {
       term: true,
       index: 0,
       isFlipped: false,
-      leftArrow: '',
-      rightArrow: ''
+      category: "Cards",
     };
   }
 
@@ -38,13 +37,29 @@ export default class FlashCard extends Component {
 
   async componentDidMount() {
     await getFlashCards();
-    this.setState({ flashCards: getData() });
+    this.setState({ flashCards: getData(this.state.category) });
     this.setState({ isLoaded: true });
   }
+
+  handleClick = (e) => {
+    this.setState({ category: e.target.textContent});
+    this.setState({ flashCards: getData(e.target.textContent)})
+  }
+
+  handleCategory = (e) => {
+    this.setState({ category: e.target.text });
+  };
 
   render() {
     return (
       <>
+        <Container className="mb-5 categoryBtnBox">
+          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>All Categories</Button>
+          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>Javascript</Button>
+          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>React</Button>
+          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>C#</Button>
+          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>Miscellaneous</Button>
+        </Container>
         {/* FlashCard */}
         <Container>
           <ReactCardFlip
@@ -53,7 +68,6 @@ export default class FlashCard extends Component {
           >
             <Container className="card-front">
               <h1>
-                Front of card -
                 {this.state.isLoaded
                   ? this.state.flashCards[this.state.index].Term
                   : ""}
@@ -61,7 +75,6 @@ export default class FlashCard extends Component {
             </Container>
             <Container className="card-back">
               <h1>
-                Back of card -
                 {this.state.isLoaded
                   ? this.state.flashCards[this.state.index].Definition
                   : ""}
@@ -72,7 +85,11 @@ export default class FlashCard extends Component {
           <Container className="center my-5">
             <Row>
               <Col className="d-flex justify-content-center align-items-center">
-                <button  icon={faArrowLeft} onClick={this.PrevCard} className="prevBtn">
+                <button
+                  icon={faArrowLeft}
+                  onClick={this.PrevCard}
+                  className="prevBtn"
+                >
                   <FontAwesomeIcon icon={faArrowLeft} />
                   Previous
                 </button>
