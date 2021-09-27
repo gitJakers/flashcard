@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { getFlashCards, getData } from "../services/firebase.js";
 import ReactCardFlip from "react-card-flip";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default class FlashCard extends Component {
   constructor(props) {
@@ -13,6 +15,8 @@ export default class FlashCard extends Component {
       term: true,
       index: 0,
       isFlipped: false,
+      leftArrow: '',
+      rightArrow: ''
     };
   }
 
@@ -67,8 +71,9 @@ export default class FlashCard extends Component {
           {/* Controls */}
           <Container className="center my-5">
             <Row>
-              <Col>
-                <button onClick={this.PrevCard} className="prevBtn">
+              <Col className="d-flex justify-content-center align-items-center">
+                <button  icon={faArrowLeft} onClick={this.PrevCard} className="prevBtn">
+                  <FontAwesomeIcon icon={faArrowLeft} />
                   Previous
                 </button>
               </Col>
@@ -84,6 +89,7 @@ export default class FlashCard extends Component {
               </Col>
               <Col>
                 <button onClick={this.NextCard} className="nextBtn">
+                  <FontAwesomeIcon icon={faArrowRight} />
                   Next
                 </button>
               </Col>

@@ -43,6 +43,27 @@
   justify-content: center;
 }
 
+.addCard {
+  border-radius: 10px;
+  color: white;
+  padding: 1rem;
+  min-width: 400px;
+  /* max-width: 20rem; */
+  background-color: rgb(45, 48, 49);
+}
+
+.addCardBtn {
+  min-width: 100% !important;
+}
+
+.addCardCategory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+}
+
 .card-back, .card-front {
   height: 10rem;
   width: 100%;
@@ -77,25 +98,18 @@
   border-style:solid;
   border-color: #0CBABA;
   background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
   /* background-color: #0CBABA; */
 }
 
-.prevBtn:hover {
-  content:;
+.prevBtn:hover, .nextBtn:hover {
   color: black;
-  padding-left: 2rem;
+  background-color: #0CBABA;
 }
-
-/* .nextBtn {
-
-} */
-
-/* 
-.card-back {
-  background-color: #477470;
-  height: 20rem;
-  box-shadow: 0rem 0rem 1rem 1rem  #477470;
-} */
 
 .loginTitle {
   display: flex;
@@ -104,10 +118,6 @@
   padding-top: 2rem;
 }
 
-/* .signUpCard {
-  min-height: 100vh;
-} */
-
 .signUpSize {
   max-width: 400px;
 }
@@ -115,6 +125,11 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+}
+
+.navbarText {
+  font-weight:600;
+  color: #0CBABA !important;
 }
 
 .background {

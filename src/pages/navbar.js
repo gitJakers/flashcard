@@ -1,12 +1,10 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
 import Navbar from 'react-bootstrap/Navbar';
 import { Nav } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
-import Col from 'react-bootstrap/Col';
-import { BrowserRouter as Link } from 'react-router-dom';
 import { logOut, getUser } from '../services/firebase';
+import { faBolt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function navbar(props) {
 
@@ -14,13 +12,12 @@ function navbar(props) {
         <>
             <Navbar className="mb-5" bg="dark" variant="dark">
                 <Container className="navbar">
-                    <Navbar.Brand href="/flashcards">FlashCards</Navbar.Brand>
+                    <Navbar.Brand href="/flashcards"><FontAwesomeIcon className="mx-2 navbarText" icon={faBolt} />FlashCards</Navbar.Brand>
                     <div>
                         <Nav className="me-auto">
-
-                            <Nav.Link href="/addcard">Add Card</Nav.Link>
-                            <Nav.Link href="" onClick={() => { getUser(props.user) }}>Get User</Nav.Link>
-                            <Nav.Link href="/login" onClick={(e) => { logOut(e) }}>Sign Out</Nav.Link>
+                            <Nav.Link className="navbarText" href="/addcard">Add Card</Nav.Link>
+                            <Nav.Link className="navbarText" href="" onClick={() => { getUser(props.user) }}>Get User</Nav.Link>
+                            <Nav.Link className="navbarText" href="/login" onClick={(e) => { logOut(e) }}>Sign Out</Nav.Link>
                         </Nav>
                     </div>
                 </Container>
@@ -48,4 +45,4 @@ function navbar(props) {
     )
 }
 
-export default withRouter(navbar)
+export default navbar
