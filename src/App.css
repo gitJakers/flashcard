@@ -38,7 +38,6 @@
 }
 
 .center {
-  /* margin-top: 15%; */
   display: flex;
   justify-content: center;
 }
@@ -47,8 +46,8 @@
   border-radius: 10px;
   color: white;
   padding: 1rem;
-  min-width: 400px;
-  /* max-width: 20rem; */
+  min-width: 300px;
+  max-width: 800px !important;
   background-color: rgb(45, 48, 49);
 }
 
@@ -60,8 +59,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* padding-top: 10px;
-  padding-bottom: 10px; */
+  align-items: center;
 }
 
 .categoryBtnBox {
@@ -70,16 +68,15 @@
   align-items: center;
 }
 
+.cardBox {
+  max-width: 55rem !important;
+}
+
 .categoryBtn {
   width: 10rem;
   font-size: 1.25rem !important;
   background-color: #4e4a4c !important;
 }
-
-/* .categoryBtn:focus{
-  color: black !important;
-  background-color: white !important;
-} */
 
 .categoryBtn:hover {
   color: black !important;
@@ -87,7 +84,6 @@
 }
 
 .card-back, .card-front {
-  height: 10rem;
   width: 100%;
   color: white;
   display: flex;
@@ -97,7 +93,6 @@
   height: 20rem;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 5px rgb(0, 178, 248);
-  /* 0px 0px 10px 0px rgb(78, 1, 88); */
 }
 
 .flipBtn {
@@ -111,7 +106,6 @@
 }
 
 .prevBtn, .nextBtn {
-  /* min-width: 10rem; */
   color: white;
   font-size: 1rem;
   min-height: 4rem;
@@ -124,8 +118,6 @@
   align-items: center;
   justify-content: center;
   justify-content: space-around;
-  flex-direction: column;
-  /* background-color: #0CBABA; */
 }
 
 .prevBtn:hover, .nextBtn:hover {
@@ -155,7 +147,10 @@
 }
 
 .background {
-  height: 100vh;
+  overflow-y: hidden;
+  max-height: 100%;
+  min-height: 100vh;
+  background-position: center;
   background: rgb(56,0,54);
   background: linear-gradient(150deg, rgba(56,0,54,1) 0%, rgba(93,12,186,1) 54%, rgba(1,186,239,1) 100%); 
 }

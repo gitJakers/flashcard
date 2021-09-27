@@ -42,26 +42,56 @@ export default class FlashCard extends Component {
   }
 
   handleClick = (e) => {
-    this.setState({ category: e.target.textContent});
-    this.setState({ flashCards: getData(e.target.textContent)})
-  }
-
-  handleCategory = (e) => {
-    this.setState({ category: e.target.text });
+    this.setState({ category: e.target.textContent });
+    this.setState({ flashCards: getData(e.target.textContent) });
   };
 
   render() {
     return (
       <>
         <Container className="mb-5 categoryBtnBox">
-          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>All Categories</Button>
-          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>Javascript</Button>
-          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>React</Button>
-          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>C#</Button>
-          <Button disabled={!this.state.isLoaded} className="categoryBtn" onClick={this.handleClick}>Miscellaneous</Button>
+          <Row>
+            <Col>
+              <Button
+                disabled={!this.state.isLoaded}
+                className="categoryBtn my-1 mx-1"
+                onClick={this.handleClick}
+              >
+                All Categories
+              </Button>
+              <Button
+                disabled={!this.state.isLoaded}
+                className="categoryBtn my-1 mx-1"
+                onClick={this.handleClick}
+              >
+                Javascript
+              </Button>
+              <Button
+                disabled={!this.state.isLoaded}
+                className="categoryBtn my-1 mx-1"
+                onClick={this.handleClick}
+              >
+                React
+              </Button>
+              <Button
+                disabled={!this.state.isLoaded}
+                className="categoryBtn my-1 mx-1"
+                onClick={this.handleClick}
+              >
+                C#
+              </Button>
+              <Button
+                disabled={!this.state.isLoaded}
+                className="categoryBtn my-1 mx-1"
+                onClick={this.handleClick}
+              >
+                Miscellaneous
+              </Button>
+            </Col>
+          </Row>
         </Container>
         {/* FlashCard */}
-        <Container>
+        <Container className="cardBox">
           <ReactCardFlip
             isFlipped={this.state.isFlipped}
             flipDirection="vertical"
@@ -82,36 +112,39 @@ export default class FlashCard extends Component {
             </Container>
           </ReactCardFlip>
           {/* Controls */}
-          <Container className="center my-5">
-            <Row>
-              <Col className="d-flex justify-content-center align-items-center">
-                <button
-                  icon={faArrowLeft}
-                  onClick={this.PrevCard}
-                  className="prevBtn"
-                >
-                  <FontAwesomeIcon icon={faArrowLeft} />
-                  Previous
-                </button>
-              </Col>
-              <Col className="mx-3">
-                <button
-                  onClick={() =>
-                    this.setState({ isFlipped: !this.state.isFlipped })
-                  }
-                  className="flipBtn"
-                >
-                  Flip Card!
-                </button>
-              </Col>
-              <Col>
-                <button onClick={this.NextCard} className="nextBtn">
-                  <FontAwesomeIcon icon={faArrowRight} />
-                  Next
-                </button>
-              </Col>
-            </Row>
-          </Container>
+          <Row className="mt-5">
+            {/* Prev Button */}
+            <Col className="d-flex justify-content-center align-items-center">
+              <button
+                icon={faArrowLeft}
+                onClick={this.PrevCard}
+                className="prevBtn"
+              >
+                <FontAwesomeIcon className="mx-1" icon={faArrowLeft} />
+                Previous
+              </button>
+            </Col>
+            {/* Next Button */}
+            <Col className="">
+              <button onClick={this.NextCard} className="nextBtn m-auto">
+                Next
+                <FontAwesomeIcon icon={faArrowRight} />
+              </button>
+            </Col>
+          </Row>
+          <Row >
+            {/* Flip Button */}
+            <Col className="d-flex justify-content-center align-items-center mb-5">
+              <button
+                onClick={() =>
+                  this.setState({ isFlipped: !this.state.isFlipped })
+                }
+                className="flipBtn"
+              >
+                Flip Card!
+              </button>
+            </Col>
+          </Row>
         </Container>
       </>
     );

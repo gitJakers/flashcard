@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Button, Dropdown } from "react-bootstrap";
 import { AddFlashCard } from "../services/firebase";
-// import '../App.css';
 
 export default class AddCard extends Component {
     constructor() {
