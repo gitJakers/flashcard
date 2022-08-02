@@ -36,3 +36,138 @@
     transform: rotate(360deg);
   }
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.addCard {
+  border-radius: 10px;
+  color: white;
+  padding: 1rem;
+  min-width: 300px;
+  max-width: 800px !important;
+  background-color: rgb(45, 48, 49);
+}
+
+.addCardBtn {
+  min-width: 100% !important;
+}
+
+.addCardCategory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.categoryBtnBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardBox {
+  max-width: 55rem !important;
+}
+
+.categoryBtn {
+  width: 10rem;
+  font-size: 1.25rem !important;
+  background-color: #4e4a4c !important;
+}
+
+.categoryBtn:hover {
+  color: black !important;
+  background-color: white !important;
+}
+
+.card-back, .card-front {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #272627;
+  height: 20rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px rgb(0, 178, 248);
+}
+
+.flipBtn {
+  min-width: 12rem;
+  min-height: 4rem;
+  border-radius: 2rem;
+  border-style: hidden;
+  color: white;
+  font-size: 2rem;
+  background-color: #0CBABA;
+}
+
+.prevBtn, .nextBtn {
+  color: white;
+  font-size: 1rem;
+  min-height: 4rem;
+  min-width: 5rem;
+  border-radius: 2rem;
+  border-style:solid;
+  border-color: #0CBABA;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.prevBtn:hover, .nextBtn:hover {
+  color: black;
+  background-color: #0CBABA;
+}
+
+.loginTitle {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 2rem;
+}
+
+.signUpSize {
+  max-width: 400px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbarText {
+  font-weight:600;
+  color: #0CBABA !important;
+}
+
+.background {
+  overflow-y: hidden;
+  max-height: 100%;
+  min-height: 100vh;
+  background-position: center;
+  background: rgb(56,0,54);
+  background: linear-gradient(150deg, rgba(56,0,54,1) 0%, rgba(93,12,186,1) 54%, rgba(1,186,239,1) 100%); 
+}
+
+.loginTitle {
+  color: white;
+}
+
+.loginBtn {
+  width: 100%;
+}
+
+/* Styling one button :) */
+.signUpBtn {
+  padding-top: 0px !important;
+  border-style: none !important;
+  color: #0918e7 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
