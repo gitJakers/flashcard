@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import FlashCard from './pages/flashcard.component';
 import AddCard from './pages/addCard';
 import SignIn from './pages/signIn';
-import  history from './services/history';
+import history from './services/history';
 import NavBar from './pages/navbar';
 
 
